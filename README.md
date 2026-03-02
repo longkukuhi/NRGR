@@ -36,9 +36,10 @@ Download the pretrain model weights and the tokenizer model for retrieval task.
    - [`beit3.spm`](https://github.com/microsoft/unilm/tree/master/beit3#pretrained-models): the sentencepiece model used for tokenizing texts.
 
 ## 💾 Data Preparation
-Please download the required datasets from the following sources:
-   - [`VisDial v1.0`](https://visualdialog.org/): The foundational dataset used for constructing our training data training and evaluation, consisting of images and multi-turn dialogues.
+### 🌟 Our Constructed Dataset: DAI-TIR Dataset
    - [`DAI-TIR Dataset`](https://drive.google.com/drive/folders/1JhXEoeiuwKNsVlm6LdJXFcbxYMcaJTw6?usp=sharing): This dataset contains the diffusion-augmented training samples described in our paper.The dataset is currently being prepared for release. We will update this section with the download link upon acceptance.
+### 📚 Source Datasets & Evaluation Benchmarks
+   - [`VisDial v1.0`](https://visualdialog.org/): The foundational dataset used for constructing our training data training and evaluation, consisting of images and multi-turn dialogues.
    - [`ChatIR Benchmark`](https://github.com/levymsn/ChatIR?tab=readme-ov-file#table-of-contents): Four eval benchmark diglogue dataset with diverse dialogue styles (e.g., ChatGPT, Human).
    - [`PlugIR`](https://github.com/Saehyung-Lee/PlugIR): A dataset featuring concise, summary-style queries generated via an interactive pipeline.
 
