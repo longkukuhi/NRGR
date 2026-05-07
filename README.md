@@ -1,26 +1,32 @@
 <h1 align="center">
-🧠Towards Hallucination-Robust Diffusion Augmented Interactive
-Text-to-Image Retrieval</h1>
+🧠NRGR: Generation-Noise Robust Framework for Interactive Image Retrieval</h1>
 
 <p align = "center">
-<img src="assets/arch.png">
+<img src="assets/framework.png">
 </p>
 
 
-* **Official PyTorch implementation for paper:  "Towards Hallucination-Robust Diffusion Augmented Interactive Text-to-Image Retrieval "** <br>
+* **Official PyTorch implementation of NRGR: "Generation isn’t always helpful: Generation-Noise Robust Framework for Interactive Image Retrieval"** <br>
 
 ## 📰 Updates
-- [2026/01/27] The code of DMCL is released! 🎉
+- [2026/05/6] The code of NRGR is released! 🎉
 
 ## 🗞️ Table of Contents
-- [Setup](#-setup)
-- [Download Pretrained Weights](#-download-the-beit-3-pretrain-weight-for-retrieval-task)
-- [Data Preparation](#-data-preparation)
-- [Download Checkpoints](#-download-our-checkpoints)
-- [Training and Evaluation](#-training-and-evaluation)
-- [Acknowledgements](#-acknowledgements)
-- [License](#-license)
-- [Citation](#-citation)
+- [📰 Updates](#-updates)
+- [🗞️ Table of Contents](#️-table-of-contents)
+- [🛠️ Setup](#️-setup)
+- [⬇️ Download The BEiT-3 Pretrain Weight for Retrieval Task](#️-download-the-beit-3-pretrain-weight-for-retrieval-task)
+- [💾 Data Preparation](#-data-preparation)
+  - [🌟 Our Constructed Dataset: GA-VisDial Dataset](#-our-constructed-dataset-ga-visdial-dataset)
+  - [📚 Source Datasets \& Evaluation Benchmarks](#-source-datasets--evaluation-benchmarks)
+- [🗂️ Download our checkpoints](#️-download-our-checkpoints)
+- [🚀 Training and Evaluation](#-training-and-evaluation)
+  - [Directory Structure](#directory-structure)
+  - [Training](#training)
+  - [Evaluation](#evaluation)
+- [🤝 Acknowledgements](#-acknowledgements)
+- [⚖️ License](#️-license)
+- [✏️ Citation](#️-citation)
 
 ## 🛠️ Setup
 First, clone this repository to your local machine, and install the dependencies.
@@ -36,12 +42,12 @@ Download the pretrain model weights and the tokenizer model for retrieval task.
    - [`beit3.spm`](https://github.com/microsoft/unilm/tree/master/beit3#pretrained-models): the sentencepiece model used for tokenizing texts.
 
 ## 💾 Data Preparation
-### 🌟 Our Constructed Dataset: DAI-TIR Dataset
-   - [`DAI-TIR Dataset`](https://drive.google.com/drive/folders/1JhXEoeiuwKNsVlm6LdJXFcbxYMcaJTw6?usp=sharing): This dataset contains the diffusion-augmented training samples described in our paper.The dataset is currently being prepared for release. We will update this section with the download link upon acceptance.
+### 🌟 Our Constructed Dataset: GA-VisDial Dataset
+   - [`GA-VisDial Dataset`](https://drive.google.com/drive/folders/1JhXEoeiuwKNsVlm6LdJXFcbxYMcaJTw6?usp=sharing): This dataset contains the diffusion-augmented training samples described in our paper.The dataset is currently being prepared for release. We will update this section with the download link upon acceptance.
 ### 📚 Source Datasets & Evaluation Benchmarks
-   - [`VisDial v1.0`](https://visualdialog.org/): The foundational dataset used for constructing our training data training and evaluation, consisting of images and multi-turn dialogues.
-   - [`ChatIR Benchmark`](https://github.com/levymsn/ChatIR?tab=readme-ov-file#table-of-contents): Four eval benchmark diglogue dataset with diverse dialogue styles (e.g., ChatGPT, Human).
-   - [`PlugIR`](https://github.com/Saehyung-Lee/PlugIR): A dataset featuring concise, summary-style queries generated via an interactive pipeline.
+- [`VisDial v1.0`](https://visualdialog.org/): The source dataset used for constructing GA-VisDial and for in-distribution evaluation.
+- [`ChatIR`](https://github.com/levymsn/ChatIR): Out-of-distribution evaluation benchmarks with diverse dialogue styles, including ChatGPT-generated and human-written dialogues.
+- [`PlugIR`](https://github.com/Saehyung-Lee/PlugIR): A dataset featuring concise, summary-style queries generated via an interactive pipeline.
 
 ## 🗂️ Download our checkpoints
 The checkpoints will be made publicly available upon acceptance of the paper.
@@ -50,7 +56,7 @@ The checkpoints will be made publicly available upon acceptance of the paper.
 
 ###  Directory Structure
 
-To ensure the code runs correctly, you can organize your project directory as follows. Alternatively, you can modify the paths in `dmcl_config.py` to match your custom directory structure.
+To ensure the code runs correctly, you can organize your project directory as follows. Alternatively, you can modify the paths in `nrgr_config.py` to match your custom directory structure.
 
 ```text
 .
@@ -73,15 +79,15 @@ To ensure the code runs correctly, you can organize your project directory as fo
 ├── model/                      # Pretrained Checkpoints
 │   ├── beit3_base_itc_patch16_224.pth
 │   └── beit3.spm
-├── dmcl_config.py
+├── nrgr_config.py
 ├── train.py
-├── eval_dmcl.py
+├── eval_nrgr.py
 ├──README.md
 └── ...
 ```
 
 ### Training
-You can adjust the training hyperparameters by passing command-line arguments. Alternatively, you can configure them directly by modifying dmcl_config.py, allowing you to simply run:
+You can adjust the training hyperparameters by passing command-line arguments. Alternatively, you can configure them directly by modifying nrgr_config.py, allowing you to simply run:
 ```bash
 python train.py
 ```
@@ -89,7 +95,7 @@ python train.py
 ### Evaluation
 To perform a complete evaluation of the experiment, run the following command:
 ```bash
-python eval_dmcl.py
+python eval_nrgr.py
 ```
 
 ## 🤝 Acknowledgements
